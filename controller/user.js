@@ -40,7 +40,7 @@ const getAllUsers = async (req, res, next) => {
     }
     // open a variable to collect the users that are looped through
     let users = [];
-    for(i = 0; i < postgresResults.rows.length; i++) {
+    for(let i = 0; i < postgresResults.rows.length; i++) {
       users.push(postgresResults.rows[i])
     }
 

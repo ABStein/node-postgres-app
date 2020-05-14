@@ -4,7 +4,7 @@ Fork and clone the project
 
 Current vesion of node used for this project is `12.16.0`.
 
-This project also requires an installation of postgres, in my case I used brew to do this `brew install postgresql`
+This project also requires an installation of postgresql, in my case I used brew to do this `brew install postgresql`
 
 To start the server `brew services start postgresql`, you should see an output of 
 ```
@@ -71,4 +71,4 @@ If the endpoint is hit with an improper path like `/usrs` the response will be a
 
 ### Unit tests
 
-TBD
+`npm run test`

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha './test/**/*.spec.js'"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +15,12 @@
     "http-status-codes": "^1.4.0",
     "oneline": "^1.0.3",
     "pg": "^8.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.2",
+    "mock-req-res": "^1.1.4",
+    "sinon": "^9.0.2",
+    "sinon-chai": "^3.5.0"
   }
 }
