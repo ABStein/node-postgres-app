@@ -18,10 +18,26 @@ const getUserById = async (id) => {
     console.log(`[psql.idQuery] getUserById - idResults: ${JSON.stringify(idResults.rows)}`)
   } catch (err) {
     console.log(`[psql.idQuery] getUserById - PSQL Query Error: ${JSON.stringify(err)}`);
-    return err.stack;
+    return err;
   }
 
   return idResults;
+}
+
+const getUsers = async () => {
+  const allUserQuery = oneline`
+  SELECT * 
+  FROM users`;
+
+  let userResults;
+  try {
+    userResults = await pool.query(allUserQuery)
+    console.log(`[psql.allUserQuery] getUsers - userResults: ${JSON.stringify(userResults.rows)}`)
+  } catch (err) {
+    console.log(`[psql.allUserQuery] getUsers - PSQL Query Error: ${JSON.stringify(err.stack)}`);
+    return err;
+  }
+  return userResults;
 }
 
 
@@ -42,4 +58,5 @@ const getUserById = async (id) => {
 
 module.exports = {
   getUserById,
+  getUsers
 }
