@@ -71,4 +71,10 @@ If the endpoint is hit with an improper path like `/usrs` the response will be a
 
 ### Unit tests
 
-TBD
+Using cypress with npm due to
+
+- Cypress is versioned like any other dependency.
+- It simplifies running Cypress in Continuous Integration.
+
+to open cypress
+`npm run cypress:open`
