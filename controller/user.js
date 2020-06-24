@@ -5,16 +5,19 @@ const db = require('../db/queries')
 const getUser = async (req, res, next) => {
   // set id to take in the url param
   const { id } = req.params
-  // open a results variable to later hold on to the result o fthe query
+  // open a results variable to later hold on to the result of the query
   let postgresResults;
 
   try {
+    console.log('This is id in controller' , id)
     postgresResults = await db.getUserById(id)
+    console.log('This is postgresResults' , postgresResults)
     let user;
     if(postgresResults === 'Not a valid user.') {
       res.status(statusCodes.NOT_FOUND)
         .json({
           error: statusCodes.getStatusText(statusCodes.NOT_FOUND),
+          message: 'The user you are looking for does not exist.'
         })
     } else {
       user = postgresResults.rows[0]

@@ -1,7 +1,6 @@
-// ./app.js
 const express = require('express')
 const statusCodes = require('http-status-codes');
-
+const cors = require('cors');
 
 /**
  * Routes
@@ -19,7 +18,10 @@ const dotenv = require('dotenv').config('.env');
 
 // returns middleware that only parses json and setting to strict to allow
 // anything that JSON.parse will accept
-app.use(express.json({ strict: false }))
+app.use(express.json({ strict: false }));
+
+// returns middleware that will allow cors requests
+app.use(cors());
 
 // ALL ROUTES WILL EXIST HERE
 app.use('/', router);

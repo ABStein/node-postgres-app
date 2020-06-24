@@ -10,11 +10,15 @@ const getUserById = async (id) => {
 
   // log id as well as the function we are using
   const params = [id];
+  console.log('This is ID' , id)
   console.log(`[psql.idQuery] getUserById - Params: ${JSON.stringify(params)}`)
 
   let idResults;
   try {
     idResults = await pool.query(idQuery)
+    if (idResults.rowCount === 0) {
+      return 'Not a valid user.';
+    }
     console.log(`[psql.idQuery] getUserById - idResults: ${JSON.stringify(idResults.rows)}`)
   } catch (err) {
     console.log(`[psql.idQuery] getUserById - PSQL Query Error: ${JSON.stringify(err)}`);
