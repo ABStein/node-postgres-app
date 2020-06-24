@@ -2,7 +2,7 @@
 
 Fork and clone the project
 
-Current vesion of node used for this project is `12.16.0`.
+Current version of node used for this project is `12.16.0`.
 
 This project also requires an installation of postgresql, in my case I used brew to do this `brew install postgresql`
 
@@ -58,6 +58,15 @@ Hitting this will return a single user from the DB based on the url param provid
     "name": "Jerry",
     "email": "jerry@example.com"
   }
+}
+```
+
+If you hit the endpoint with a user that is either invalid or does not exist this is the response
+
+```
+{
+  error: Not Found
+  message: The user you are trying to find does not exist.
 }
 ```
 
